@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kids Training</title>
+<style>
+:root{--bg:#FFF9F0;--card:#fff;--ink:#1E1B4B;--mut:#6B7280;--pu:#A855F7;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1836;--card:#2a2650;--ink:#f5f3ff;--mut:#b4b0d6}}
+:root[data-theme="dark"]{--bg:#1b1836;--card:#2a2650;--ink:#f5f3ff;--mut:#b4b0d6}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+#app{max-width:460px;margin:0 auto;padding:16px}
+.hero{background:var(--pu);color:#fff;border-radius:28px;text-align:center;padding:22px;margin-bottom:16px}
+.hero h1{margin:4px 0;font-size:34px;font-weight:900}
+.menu{display:grid;gap:12px}
+.m{display:flex;align-items:center;gap:14px;border:0;border-radius:22px;padding:14px 18px;color:#fff;text-align:left;cursor:pointer;font:inherit}
+.m b{font-size:22px;display:block}.m span.e{font-size:42px}.m small{opacity:.9}
+.top{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.top h2{flex:1;text-align:center;margin:0;font-size:20px}
+.btn{border:2px solid var(--pu);background:var(--card);color:var(--ink);border-radius:14px;padding:10px 14px;font:inherit;font-weight:800;cursor:pointer}
+.btn.on{background:var(--pu);color:#fff}
+.tabs{display:flex;gap:8px;margin-bottom:12px}.tabs .btn{flex:1}
+.card{background:var(--card);border-radius:28px;padding:22px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.big{font-size:96px;line-height:1.1;cursor:pointer}
+.en{font-size:42px;font-weight:900;color:var(--pu)}
+.es,.mut{color:var(--mut)}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.words{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.w{background:var(--card);border-radius:18px;padding:12px;font-weight:800;cursor:pointer}.w i{display:block;font-size:38px;font-style:normal}
+.q{background:#F97316;color:#fff;border-radius:28px;padding:18px;text-align:center;margin-bottom:12px}
+.q .qw{font-size:38px;font-weight:900}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.o{background:var(--card);color:var(--ink);border:3px solid transparent;border-radius:20px;height:92px;font-size:44px;font-weight:900;cursor:pointer}
+.o.ok{background:#DCFCE7;color:#16A34A;border-color:#22C55E}.o.no{background:#FEE2E2;border-color:#EF4444;animation:sh .4s}
+.fb{text-align:center;font-size:24px;font-weight:900;min-height:36px;margin-top:10px}
+@keyframes sh{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+</style></head><body><div id="app"></div>
+<script>
+const V={
+Numbers:"1️⃣|One|Uno,2️⃣|Two|Dos,3️⃣|Three|Tres,4️⃣|Four|Cuatro,5️⃣|Five|Cinco,6️⃣|Six|Seis,7️⃣|Seven|Siete,8️⃣|Eight|Ocho,9️⃣|Nine|Nueve,🔟|Ten|Diez",
+Colors:"🔴|Red|Rojo,🟠|Orange|Naranja,🟡|Yellow|Amarillo,🟢|Green|Verde,🔵|Blue|Azul,🟣|Purple|Morado,🟤|Brown|Café,⚫|Black|Negro,⚪|White|Blanco,🌸|Pink|Rosa",
+Animals:"🐶|Dog|Perro,🐱|Cat|Gato,🐮|Cow|Vaca,🐷|Pig|Cerdo,🐔|Chicken|Pollo,🐴|Horse|Caballo,🐑|Sheep|Oveja,🐸|Frog|Rana,🐟|Fish|Pez,🐦|Bird|Pájaro,🐘|Elephant|Elefante,🦁|Lion|León,🐵|Monkey|Mono,🐻|Bear|Oso,🐰|Rabbit|Conejo",
+Fruits:"🍎|Apple|Manzana,🍌|Banana|Banano,🍊|Orange|Naranja,🍇|Grapes|Uvas,🍓|Strawberry|Fresa,🍉|Watermelon|Sandía,🍍|Pineapple|Piña,🍒|Cherries|Cerezas,🍐|Pear|Pera,🍋|Lemon|Limón"};
+const ABC="A:🍎 Apple,🐜 Ant;B:🐻 Bear,🍌 Banana;C:🐱 Cat,🚗 Car;D:🐶 Dog,🦆 Duck;E:🐘 Elephant,🥚 Egg;F:🐟 Fish,🌸 Flower;G:🍇 Grapes,🐐 Goat;H:🏠 House,🐴 Horse;I:🍦 Ice cream,🏝️ Island;J:🧃 Juice,🧥 Jacket;K:🪁 Kite,🦘 Kangaroo;L:🦁 Lion,🍋 Lemon;M:🐵 Monkey,🌙 Moon;N:👃 Nose,🥜 Nut;O:🐙 Octopus,🍊 Orange;P:🐷 Pig,🍕 Pizza;Q:👸 Queen,❓ Question;R:🐰 Rabbit,🌈 Rainbow;S:☀️ Sun,🐍 Snake;T:🐢 Turtle,🌳 Tree;U:☂️ Umbrella,🦄 Unicorn;V:🎻 Violin,🌋 Volcano;W:🐋 Whale,🍉 Watermelon;X:🎶 Xylophone,🦊 Fox;Y:💛 Yellow,⛵ Yacht;Z:🦓 Zebra,🤐 Zipper";
+const NAMES="ay bee cee dee ee eff gee aitch eye jay kay el em en oh pee cue ar ess tee you vee double-you ex why zee".split(" ");
+const L=ABC.split(";").map((s,i)=>{const[l,w]=s.split(":");return{l,n:NAMES[i],w:w.split(",").map(x=>{const[e,...r]=x.split(" ");return{e,t:r.join(" ")}})}});
+const MENU=[["ABC","🔤","El abecedario en inglés","#22C55E"],["Numbers","🔢","Los números 1–10","#3B82F6"],["Colors","🌈","Los colores","#EC4899"],["Animals","🐶","Los animales","#F97316"],["Fruits","🍎","Las frutas","#EF4444"],["Count","👆","Cuenta objetos","#8B5CF6"],["Add","➕","Sumas simples","#14B8A6"],["Draw","🎨","Dibuja y pinta","#F59E0B"]];
+let cat,mode,i=0,score=0,ans,lock=false,pool=[];
+const $=h=>document.getElementById("app").innerHTML=h;
+let ac;function tone(f,d,t){try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain();o.type=t||"sine";o.frequency.value=f;g.gain.setValueAtTime(.3,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+d);o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+d)}catch(e){}}
+const good=()=>{tone(523,.15);setTimeout(()=>tone(659,.15),120);setTimeout(()=>tone(784,.25),240)};
+const bad=()=>tone(200,.3,"sawtooth");
+function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
+function home(){cat=null;$(`<div class="hero"><div style="font-size:34px">🌟🎈🌟</div><h1>Kids Training</h1><div>Let’s learn English! 🇺🇸</div></div><div class="menu">${MENU.map(m=>`<button class="m" style="background:${m[3]}" onclick="openCat('${m[0]}')"><span class="e">${m[1]}</span><span style="flex:1"><b>${m[0]}</b><small>${m[2]}</small></span>▶</button>`).join("")}</div>`)}
+function openCat(c){cat=c;mode="learn";i=0;score=0;lv=1;if(c=="Count")return count();if(c=="Add")return add();if(c=="Draw")return paint();draw()}
+function setMode(m){mode=m;i=0;draw()}
+function head(){return`<div class="top"><button class="btn" onclick="home()">⬅</button><h2>${cat}</h2><b style="color:#F59E0B">⭐ ${score}</b></div><div class="tabs"><button class="btn ${mode=="learn"?"on":""}" onclick="setMode('learn')">📖 Learn</button><button class="btn ${mode=="quiz"?"on":""}" onclick="setMode('quiz')">🎯 Quiz</button></div>`}
+function step(d){const n=cat=="ABC"?L.length:V[cat].split(",").length;i=(i+d+n)%n;draw(1)}
+function draw(sp){if(mode=="quiz")return quiz();
+if(cat=="ABC"){const a=L[i];$(head()+`<div class="nav"><button class="btn" onclick="step(-1)">◀</button><b>${a.l} · ${i+1} / 26</b><button class="btn" onclick="step(1)">▶</button></div><div class="card"><div class="big en" onclick="say('${a.n}')">${a.l}</div><div style="font-size:34px" class="mut">${a.l.toLowerCase()}</div><div class="mut">Se pronuncia: “${a.n}”</div></div><div class="words">${a.w.map(w=>`<div class="w" onclick="say('${w.t}')"><i>${w.e}</i>${w.t}</div>`).join("")}</div>`);if(sp)say(a.n)}
+else{const[e,en,es]=V[cat].split(",")[i].split("|");$(head()+`<div class="nav"><button class="btn" onclick="step(-1)">◀</button><b>${i+1} / ${V[cat].split(",").length}</b><button class="btn" onclick="step(1)">▶</button></div><div class="card"><div class="big" onclick="say('${en}')">${e}</div><div class="en">${en}</div><div class="es">${es}</div><button class="btn on" style="margin-top:14px;font-size:20px" onclick="say('${en}')">🔊 Listen</button></div>`);if(sp)say(en)}}
+function quiz(){nx=quiz;sp2="";lock=false;let word,opts,key;
+if(cat=="ABC"){const k=Math.floor(Math.random()*26),w=L[k].w[Math.floor(Math.random()*2)];word=w.e+" "+w.t;key=L[k].l;const s=new Set([key]);while(s.size<4)s.add(L[Math.floor(Math.random()*26)].l);opts=[...s];ans=key;pool=w.t}
+else{const it=V[cat].split(",").map(x=>x.split("|")),k=it[Math.floor(Math.random()*it.length)];word=k[1];key=k[0];const s=new Set([key]);while(s.size<4)s.add(it[Math.floor(Math.random()*it.length)][0]);opts=[...s];ans=key;pool=k[1]}
+opts.sort(()=>Math.random()-.5);
+$(head()+`<div class="q"><div style="opacity:.9">${cat=="ABC"?"Which letter starts this word?":"Listen and tap the picture"}</div><div class="qw">${word}</div><button class="btn" style="margin-top:8px" onclick="say(pool)">🔊</button></div><div class="opts">${opts.map(o=>`<button class="o" onclick="pick(this,'${o}')">${o}</button>`).join("")}</div><div class="fb" id="fb"></div>`);setTimeout(()=>say(pool),400)}
+function pick(b,o){if(lock)return;const f=document.getElementById("fb");
+if(o==ans){lock=true;b.classList.add("ok");good();score++;f.style.color="#16A34A";f.textContent="⭐ Great job! ⭐";if(sp2)say(sp2);if(cat=="Count")lv=lv%15+1;setTimeout(nx,1300)}
+else{b.classList.add("no");bad();f.style.color="#DC2626";f.textContent="💪 Try again!";setTimeout(()=>b.classList.remove("no"),450)}}
+let nx,sp2="",lv=1;
+const EM=["⭐","🍎","🌸","🎈","🦋","🍭","🐶","🍕"];
+const bar=(t,c)=>`<div class="top"><button class="btn" onclick="home()">⬅</button><h2>${t}</h2><b style="color:#F59E0B">${c}</b></div>`;
+const shuf=a=>a.sort(()=>Math.random()-.5);
+function count(){nx=count;lock=false;const s=lv<=5?4:lv<=10?3:2,r=lv<=5?[1,10]:lv<=10?[8,20]:[15,30];const n=r[0]+Math.floor(Math.random()*(r[1]-r[0]+1)),e=EM[Math.floor(Math.random()*EM.length)];ans=n;sp2=String(n);const o=new Set([n]);while(o.size<4){const w=n+Math.floor(Math.random()*(2*s+1))-s;if(w>0)o.add(w)}const a=Array.from({length:n},(_,k)=>e+((k+1)%5==0&&k<n-1?"<br>":" ")).join("");
+$(bar("Count","Level "+lv+"/15 ⭐ "+score)+`<div class="card"><div style="font-size:${n>20?26:n>14?34:n>9?42:50}px;line-height:1.4">${a}</div><div class="mut" style="margin-top:8px;font-weight:800">How many?</div></div><div class="opts" style="margin-top:12px">${shuf([...o]).map(v=>`<button class="o" onclick="pick(this,'${v}')">${v}</button>`).join("")}</div><div class="fb" id="fb"></div>`)}
+function add(){nx=add;lock=false;const a=1+Math.floor(Math.random()*5),b=1+Math.floor(Math.random()*(9-a)),p=[["🍎","🍊"],["⭐","🌟"],["🐱","🐶"],["🎈","🎀"],["🐟","🐠"]][Math.floor(Math.random()*5)];ans=a+b;sp2=a+" plus "+b+" equals "+ans;const o=new Set([ans]);while(o.size<4)o.add(1+Math.floor(Math.random()*10));
+$(bar("Add","⭐ "+score)+`<div class="q" style="background:#14B8A6"><div style="font-size:38px">${Array(a).fill(p[0]).join(" ")}</div><div style="font-size:28px">➕</div><div style="font-size:38px">${Array(b).fill(p[1]).join(" ")}</div><div class="qw">${a} + ${b} = ?</div></div><div class="opts">${shuf([...o]).map(v=>`<button class="o" onclick="pick(this,'${v}')">${v}</button>`).join("")}</div><div class="fb" id="fb"></div>`)}
+const PAL="#EF4444 #F97316 #FBBF24 #22C55E #3B82F6 #A855F7 #EC4899 #8D6E63 #FF9999 #FFD580 #86EFAC #93C5FD #DDD6FE #D1D5DB #1E1B4B #FFFFFF".split(" ");
+let pc="#EF4444",ps=18,pe=false;
+function paint(){$(`<div class="top"><button class="btn" onclick="home()">⬅</button><h2>Draw</h2><button class="btn" onclick="paint()">🗑️</button></div><canvas id="cv" style="width:100%;height:46vh;background:#fff;border-radius:20px;touch-action:none;display:block"></canvas><div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0">${PAL.map(c=>`<button onclick="pc='${c}';pe=false" style="width:36px;height:36px;border-radius:50%;border:3px solid #fff;background:${c};box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer"></button>`).join("")}</div><div class="tabs"><button class="btn" onclick="ps=8">S</button><button class="btn" onclick="ps=18">M</button><button class="btn" onclick="ps=36">L</button><button class="btn" onclick="pe=true">⬜ Erase</button></div>`);
+const cv=document.getElementById("cv");cv.width=cv.clientWidth;cv.height=cv.clientHeight;const x=cv.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,cv.width,cv.height);let d=false,lx,ly;
+const pos=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]};
+const ln=(a,b)=>{x.strokeStyle=pe?"#fff":pc;x.lineWidth=pe?ps*3:ps;x.lineCap="round";x.beginPath();x.moveTo(lx,ly);x.lineTo(a,b);x.stroke();lx=a;ly=b};
+cv.onpointerdown=e=>{d=true;[lx,ly]=pos(e);cv.setPointerCapture(e.pointerId);ln(lx+.1,ly)};
+cv.onpointermove=e=>{if(d)ln(...pos(e))};
+cv.onpointerup=cv.onpointercancel=()=>{d=false}}
+home();
+</script></body></html>
